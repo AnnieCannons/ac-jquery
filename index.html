@@ -47,25 +47,25 @@
         </section>
 
         <section>
-            <h2>What is jquery?</h2>
+            <h2>What is jQuery?</h2>
             <p>jQuery is a collection of JavaScript code. This is called a library. A library is a collection of reusable methods for a particular purpose.</p>
             <p>JQuery is JavaScript.</p>
             <img src="images/jquery.png" alt="">
         </section>
 
         <section>
-            <h2>How to write jquery</h2>
+            <h2>How to write jQuery</h2>
             <p class="fragment">jQuery does have its own syntax as well. But it is really easy to use!</p>
             <p class="fragment">To use jQuery (just like Bootstrap in CSS), you have to add the jQuery library to your JSBin OR add the script tag with the jQuery information into your HTML file.</p>
             <p class="fragment">Best practice: Put right before the closing body tag</p>
         </section>
 
         <section> 
-            <h2>How to write jquery</h2>
+            <h2>How to write jQuery</h2>
             <p class="fragment">jQuery can also be written as a dollar sign $</p>
             <p class="fragment">jQuery selects HTML elements from your HTML to add certain JavaScript methods to them. </p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
-$("HTML selector").method();
+$("HTML-selector").method();
 </pre></code>
         </section>
 
@@ -97,7 +97,7 @@ document.querySelectorAll('section')
         </section>
 
         <section>
-            <h2>The Dom and jquery</h2>
+            <h2>The Dom and jQuery</h2>
             <p class="fragment">Using JavaScript to manipulate the DOM. </p>
             <img src="images/dom.png" class="fragment" alt="">
             <p class="fragment">Comparing to jQuery</p>
@@ -111,7 +111,7 @@ document.querySelectorAll('section')
              
             <p>JavaScript</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
-document.getElementById(‘greeting’)
+document.getElementById("greeting")
 </pre></code>
             <p>JQuery</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
@@ -127,7 +127,7 @@ $("#greeting")
              
             <p>JavaScript</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
-document.getElementsByClassName(‘greeting’)
+document.getElementsByClassName("greeting")
 </pre></code>
             <p>JQuery</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
@@ -136,12 +136,12 @@ $(".greeting")
          </section>
 
         <section>
-            <h2>jquery: selecting elements</h2>
+            <h2>jQuery: selecting elements</h2>
             <img src="images/htmljquery.png" alt="">
         </section>
 
         <section>
-            <h2>jquery: the recipe</h2>
+            <h2>jQuery: the recipe</h2>
             <img src="images/recipe.png" alt="">
         </section>
 
@@ -149,7 +149,7 @@ $(".greeting")
             <h2>Where to go?</h2>
             <p>This website will give you a list of many of the different methods you can use in jQuery, and it had a search function! This documentation is a great way to learn more about what you can do with jQuery.</p>
             <p>*Pro tip: Go to the code examples at the bottom of the page.</p>
-            <p><a href="www.api.jquery.com">www.api.jquery.com</a></p>
+            <p><a href="http://www.api.jquery.com">www.api.jquery.com</a></p>
         </section>
 
         <section>
@@ -188,7 +188,7 @@ $("#id") //how to select an element with a certain id
         </section>
 
         <section>
-            <h2>HOw do we find DOM elements with $</h2>
+            <h2>How do we find DOM elements with $</h2>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("p").text("Hello World!");
 $("p").css("color", "red");
@@ -209,7 +209,7 @@ $("img").on("click", ...do something...);
             <h2>jquery events</h2>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("button").click(function(){ 
-    $("button").css(‘background-color’, ‘blue’)
+    $("button").css("background-color", "blue")
 });
 </pre></code>       
         </section>
@@ -330,42 +330,6 @@ $('#error').show(1000, function(){
 });
 </code></pre>
 		</section>-->
-
-        <section>
-            <h2>jQuery Plugins</h2>
-			<p>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</p>
-			<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h3>
-			<p><a href="http://blog.pamelafox.org/2013/07/which-javascript-library-should-i-pick.html">Which plugin should you pick?</a></p>
-		</section>
-
-        <section>
-            <h2>jQuery Plugin Usage</h2>
-		    <ul>
-                <li class="fragment">Download the plugin and associated files from the site or github repo.</li>
-                <li class="fragment">Copy them into your project folder.</li>
-                <li class="fragment">In the HTML, reference any associated CSS files.</li>
-<pre class="fragment"><code class="html" data-trim contenteditable> 
- &lt;link rel="type/stylesheet" type="text/css" href="tablesorter.css"&gt;
- </code></pre>
-				<li class="fragment">In the HTML, add a &lt;script&gt; tag for the jQuery plugin itself.</li>
-<pre class="fragment"><code class="js" data-trim contenteditable> 
- &lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;
-</code></pre>
-				<li class="fragment"> In the JavaScript, call the jQuery plugin on your DOM.</li>
-<pre class="fragment"><code class="js" data-trim contenteditable> 
-$('table').tableSorter();
-</code></pre>
-            </ul>
-		</section><!--/jquery plugin usage-->
-
-				<!--<section>
-					<h2>Helpful Shorthand</h2>
-					<p><strong>Pattern: </strong>name variables with $ </p>
-<pre class="fragment"><code class="js" data-trim contenteditable> 
-var $myVar = $('#myNode');
-</code></pre>
-				</section>/jquery patterns and anti-patterns-->
-
         <section>
             <h2>In-class Assignment</h2>
             <p>Append Method</p>
@@ -386,7 +350,7 @@ $("p").append("<p>Greetings! How are you?</p>");
         </section>
 
         <section>
-            <h2>In-Class Assignment</h2>
+            <h2>Budget Assignment</h2>
             <p><a href="https://docs.google.com/a/anniecannons.com/document/d/1vPZczt1x4uNgEkoPipNqenkTM5vs9fW0g2aOLYHxqjs/edit?usp=sharing">Click here for budget/function exercise</a></p>
         </section>
 
