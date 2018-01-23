@@ -97,6 +97,14 @@ document.querySelectorAll('section')
         </section>
 
         <section>
+            <h2>More on the DOM</h2>
+            <ul>
+                <li>Actually, the DOM is a programming API for documents, the DOM is the bridge between your JS and your HTML</li>
+                <li>Each HTML tag is turned into a JS object by the browser, and each of those objects is stored inside the DOM</li>
+            </ul>
+        </section>
+
+        <section>
             <h2>The Dom and jQuery</h2>
             <p class="fragment">Using JavaScript to manipulate the DOM. </p>
             <img src="images/dom.png" class="fragment" alt="">
@@ -215,6 +223,21 @@ $("button").click(function(){
         </section>
 
         <section>
+            <h2>Remember!</h2>
+            <p>These two things are the same!</p>
+<pre class="fragment"><code class="js" data-trim contenteditable>                        
+$("#theme").on("click", function(){ 
+    $("*").toggleClass("theme2");
+});
+</pre></code>  
+<pre class="fragment"><code class="js" data-trim contenteditable>                        
+document.getElementById("theme").addEventListener("click", function() {
+    document.body.classList.toggle("theme2");
+})
+</pre></code>  
+        </section>
+
+        <section>
             <h2>Exercise</h2>
             <p>Change my Color: <a href="https://jsfiddle.net/yonet3d/WrzfR">https://jsfiddle.net/yonet3d/WrzfR</a>  </p>
             <p>Change the button background-color to be blue/red when they are clicked. The background color should be grey when the other button is clicked.</p>
@@ -280,56 +303,6 @@ $(".warning").hide().show("slow");
             <p><span style="color: yellow">Components: </span>On the board, write the code for the HTML and jQuery.
         </section>
 
-        <!--<section>
-            <h2>Terminology</h2>
-            <p class="fragment">Event: something that happens</p>
-            <p class="fragment">Callback: a function that executes after the event has happened</p>
-            <p class="fragment">Event listener: a method that binds an event to a callback</p>
-        </section>
-
-        <section>
-            <h2>Callbacks</h2>
-            <img src="images/ryan.png" alt="">
-        </section>
-
-        <section>
-		    <h2>Events</h2>
-            <p>Arguments get applied in callbacks<p>
-<pre class="fragment"><code class="js" data-trim contenteditable> 
-var myCallback = function(event) {
-	console.log(event);
-};
-
-$('p').on('mouseenter', myCallback);
-</code></pre>
-        </section>
-
-        <section>
-            <h2>Preventing Default Events</h2>
-<pre class="fragment"><code class="js" data-trim contenteditable> 
-$('a').on('click', function(event) {
-	event.preventDefault();
-	console.log('Not going there!');
-});
-</code></pre>
-<pre class="fragment"><code class="js" data-trim contenteditable> 
-$('form').on('submit', function(event) {
-	event.preventDefault();
-	console.log('Not submitting, time to validate!');
-});
-</code></pre>
-		</section>
-
-        <section>
-		    <h2>Effects &amp; Animation</h2>
-<pre class="fragment"><code class="js" data-trim contenteditable> 
-$('#error').toggle(1000);
-$('#error').fadeIn();
-$('#error').show(1000, function(){
-	$(this).addClass('redText')
-});
-</code></pre>
-		</section>-->
         <section>
             <h2>In-class Assignment</h2>
             <p>Append Method</p>
