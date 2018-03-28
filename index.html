@@ -47,31 +47,32 @@
         </section>
 
         <section>
-            <h2>What is jQuery?</h2>
-            <p>jQuery is a collection of JavaScript code. This is called a library. A library is a collection of reusable methods for a particular purpose.</p>
-            <p>JQuery is JavaScript.</p>
-            <img src="images/jquery.png" alt="">
+            <h2>Before we start!</h2>
+            <p class="fragment">We need to talk about how the browser actually reads your code....</p>
+            <p class="fragment">HTML and JavaScript were not really written to be able to interact.</p>
+            <img class="fragment" src="images/htmljs.gif" alt="Trying to hit a nail" width="200px">
         </section>
 
         <section>
-            <h2>How to write jQuery</h2>
-            <p class="fragment">jQuery does have its own syntax as well. But it is really easy to use!</p>
-            <p class="fragment">To use jQuery (just like Bootstrap in CSS), you have to add the jQuery library to your JSBin OR add the script tag with the jQuery information into your HTML file.</p>
-            <p class="fragment">Best practice: Put right before the closing body tag</p>
-        </section>
-
-        <section> 
-            <h2>How to write jQuery</h2>
-            <p class="fragment">jQuery can also be written as a dollar sign $</p>
-            <p class="fragment">jQuery selects HTML elements from your HTML to add certain JavaScript methods to them. </p>
-<pre class="fragment"><code class="js" data-trim contenteditable>                        
-$("HTML-selector").method();
-</pre></code>
+            <h2>Solving the problem</h2>
+            <ul>
+                <li class="fragment">Browsers contain an API (Application Programming Interface) that allows your JS and HTML to interact.</li>
+               <li class="fragment">There are a lot of APIs out there.</li>
+               <li class="fragment">The programming API for documents is called the Document Object Model (DOM)</li>
+            </ul>
         </section>
 
         <section>
             <h2>What is the DOM?</h2>
-            <img src="images/dom1.png" alt="">
+            <img src="images/dom1.png" alt="The DOM">
+        </section>
+
+        <section>
+            <h2>The DOM</h2>
+            <ul>
+                <li class="fragment">The DOM is the bridge between your JS and your HTML</li>
+                <li class="fragment">Each HTML tag is turned into a JS object by the browser, and each of those objects is stored inside the DOM</li>
+            </ul>
         </section>
 
         <section>
@@ -97,17 +98,39 @@ document.querySelectorAll('section')
         </section>
 
         <section>
-            <h2>More on the DOM</h2>
-            <ul>
-                <li>Actually, the DOM is a programming API for documents, the DOM is the bridge between your JS and your HTML</li>
-                <li>Each HTML tag is turned into a JS object by the browser, and each of those objects is stored inside the DOM</li>
-            </ul>
+            <h2>What is jQuery?</h2>
+            <p>jQuery is a collection of JavaScript code. This is called a library. A library is a collection of reusable methods for a particular purpose.</p>
+            <p>JQuery is JavaScript.</p>
+            <img src="images/jquery.png" alt="Benefits to using jQuery">
+        </section>
+
+        <section>
+            <h2>How to write jQuery</h2>
+            <p class="fragment">jQuery does have its own syntax as well. But it is really easy to use!</p>
+            <p class="fragment">To use jQuery (just like Bootstrap in CSS), you have to add the jQuery library to your JSBin OR add the script tag with the jQuery information into your HTML file.</p>
+            <p class="fragment">Best practice: Put right before the closing body tag</p>
+        </section>
+
+        <section>
+            <h2>Hosted Libraries</h2>
+            <p>Google has a website for all of the links you need for JavaScript Libraries</p>
+            <p>Go to <a href="https://developers.google.com/speed/libraries/">Hosted Libraries</a></p>
+            <p>Find the jQuery section and copy the most recent snippet.</p>
+        </section>
+
+        <section> 
+            <h2>How to write jQuery</h2>
+            <p class="fragment">jQuery can also be written as a dollar sign $</p>
+            <p class="fragment">jQuery selects HTML elements from your HTML to add certain JavaScript methods to them. </p>
+<pre class="fragment"><code class="js" data-trim contenteditable>                        
+$("HTML-selector").method();
+</pre></code>
         </section>
 
         <section>
             <h2>The Dom and jQuery</h2>
             <p class="fragment">Using JavaScript to manipulate the DOM. </p>
-            <img src="images/dom.png" class="fragment" alt="">
+            <img src="images/dom.png" class="fragment" alt="Traversing the DOM with JavaScript">
             <p class="fragment">Comparing to jQuery</p>
          </section>
 
@@ -145,12 +168,12 @@ $(".greeting")
 
         <section>
             <h2>jQuery: selecting elements</h2>
-            <img src="images/htmljquery.png" alt="">
+            <img src="images/htmljquery.png" alt="How to Select HTML Elements">
         </section>
 
         <section>
             <h2>jQuery: the recipe</h2>
-            <img src="images/recipe.png" alt="">
+            <img src="images/recipe.png" alt="jQuery Recipe">
         </section>
 
         <section>
@@ -281,11 +304,6 @@ $(".warning").hide().show("slow");
         </section>
 
         <section>
-            <h2>Create your own</h2>
-            <p>Create your own HTML, CSS, and JS files that have a piece of information that is hidden until a user clicks on it. </p>
-        </section>
-
-        <section>
             <h2>Freecodecamp</h2>
             <p>Complete the first 5 jQuery Exercises for tomorrow.</p>
             <p><a href="http://www.freecodecamp.com/challenges/learn-how-script-tags-and-document-ready-work">http://www.freecodecamp.com/challenges/learn-how-script-tags-and-document-ready-work</a></p>
@@ -304,8 +322,7 @@ $(".warning").hide().show("slow");
         </section>
 
         <section>
-            <h2>In-class Assignment</h2>
-            <p>Append Method</p>
+            <h2>Append Method</h2>
             <p class="fragment">The .append(); method in jQuery allows you to add HTML into your browser. The selector expression preceding the method is the container into which the content is inserted.</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                                   
 $("p").append("<p>Greetings! How are you?</p>");
@@ -314,8 +331,7 @@ $("p").append("<p>Greetings! How are you?</p>");
         </section>
 
         <section>
-            <h2>In-class Assignment</h2>
-            <p>The onclick Function</p>
+            <h2>The onclick Function</h2>
             <p class="fragment">If you want a function to run when a button is clicked, you can use the following syntax in your HTML.</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                                   
 &lt;button onclick="myFunction()"&gt;Click me&lt;/button&gt;
