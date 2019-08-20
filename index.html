@@ -68,7 +68,7 @@
             <ul>
                 <li class="fragment">Browsers contain an API (Application Programming Interface) that allows your JS and HTML to interact.</li>
                <li class="fragment">There are a lot of APIs out there.</li>
-               <li class="fragment">The programming API for documents is called the Document Object Model (DOM)</li>
+               <li class="fragment">The programming API for documents is called the Document Object Model (DOM). Browser's like Chrome have this built in.</li>
             </ul>
         </section>
 
@@ -109,15 +109,15 @@ document.querySelectorAll('section')
 
         <section>
             <h2>What is jQuery?</h2>
-            <p>jQuery is a collection of JavaScript code. This is called a library. A library is a collection of reusable methods for a particular purpose.</p>
+            <p>jQuery is a collection of JavaScript code. This is called a library. A library is a collection of reusable methods for a particular purpose. (Like Bootstrap for CSS)</p>
             <p>JQuery is JavaScript.</p>
             <img src="images/jquery.png" alt="Benefits to using jQuery">
         </section>
 
         <section>
             <h2>How to write jQuery</h2>
-            <p class="fragment">jQuery does have its own syntax as well. But it is really easy to use!</p>
-            <p class="fragment">To use jQuery (just like Bootstrap in CSS), you have to add the jQuery library to your JSBin OR add the script tag with the jQuery information into your HTML file.</p>
+            <p class="fragment">jQuery does have its own syntax as well. But it is similar to the other libraries we have talked about!</p>
+            <p class="fragment">To use jQuery (just like Bootstrap in CSS), you have to add the jQuery library (or CDN) script tag with the jQuery information into your HTML file.</p>
             <p class="fragment">Best practice: Put right before the closing body tag</p>
         </section>
 
@@ -193,7 +193,7 @@ $(document).ready(function() {
 
 });
 </pre></code>
-             <p class="fragment">This makes the JavaScript ready to run on the page. </p>
+             <p class="fragment">This makes the JavaScript ready to run on the page. You will add it to the beginning of your JS file.</p>
         </section>
 
         <section>
@@ -220,7 +220,7 @@ $(document).ready(function() {
 
         <section>
             <h2>Let's talk about some methods</h2>
-            <ul>
+            <!-- <ul>
                 <li class="fragment">.hide()</li>
                 <li class="fragment">.show()</li>
                 <li class="fragment">.fadeIn()</li>
@@ -229,7 +229,7 @@ $(document).ready(function() {
                 <li class="fragment">.text()</li>
                 <li class="fragment">.html()</li>
                 <li class="fragment">.css()</li>
-            </ul>
+            </ul> -->
         </section>
 
         <section>
@@ -243,18 +243,20 @@ $("img").hide();
             <p class="fragment">.fadeIn() and .fadeOut()</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#navbar").fadeIn();
-$(".maintext").fadeOut(slow);
 $("img").fadeIn(3000);
+$(".mainImg").fadeOut(6000);
 </pre></code> 
+<p class="fragment">The number 3000 means, take 3000 milliseconds (aka 3 seconds) to fade this element out. If you make the number larger, it will fade out more slowly.</p>
+<p class="fragment">Try yourself!</p>
         </section>
 
         <section>
                 <h2>Adding things to the DOM</h2>
-                <p>.append()</p>
+                <p>.append() adds to the end</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $(".formdiv").append("<div>Thank you for submitting your form!</div>")
 </pre></code> 
-                <p class="fragment">.prepend()</p>
+                <p class="fragment">.prepend() adds to the end</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>  
 var name = "Doctor Who"                      
 $(".welcome").append("<div>Welcome " + name + "</div>")
@@ -262,13 +264,19 @@ $(".welcome").append("<div>Welcome " + name + "</div>")
 </pre></code> 
             </section>
 
+            <section>
+                <h2>Adding things to the DOM</h2>
+                <p>Remember! When you add something in the parenthesis of .append() or .prepend(), you have to put the html elements in quotation marks.</p>
+            </section>
+
         <section>
             <h2>Changing what is in the DOM</h2>
-            <p>.text()</p>
+            <p>These elements find something that already exists on your page and overwrites it.</p>
+            <p>.text() replaces the text in an element with something else</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#error").text("You can't use that password.")
 </pre></code> 
-            <p class="fragment">.html()</p>
+            <p class="fragment">.html() replaces the html inside an element with something else.</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("div").html("<p>Party time!</p>")
 </pre></code> 
@@ -276,10 +284,11 @@ $("div").html("<p>Party time!</p>")
 
         <section>
             <h2>Changing what elements look like</h2>
-            <p>.css()</p>
+            <p>.css() changes the CSS of an element you have selected</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#navbar").css("background-color", "red");
 </pre></code> 
+<p class="fragment"> You have to change the syntax for updating the property-value pair of the elements CSS. It is JS syntax, not CSS syntax.</p>
             </section>
 
         <section>
@@ -287,19 +296,21 @@ $("#navbar").css("background-color", "red");
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("p").text("Hello World!");
 $("p").css("color", "red");
-$("p").hide();
+$("p").fadeOut(3000);
 </pre></code>
         </section>
 
         <section>
             <h2>jquery events</h2>
-            <p>In addition to changing elements when the document loads or depending on certain media queries, we also need to change the UI based on elements.</p>
-            <p>Let's us .on()!</p>
-            <img src="images/action.gif" alt="Action!">
+            <p>In addition to changing elements when the document loads or depending on certain media queries, we also need to change the UI based on events.</p>
+            <p class="fragment">Events are when the user takes an action on your site. Examples: clicks a button, types in a form, etc</p>
+            <img class="fragment" src="images/action.gif" alt="Action!">
         </section>
 
         <section>
             <h2>jquery Events</h2>
+            <p class="fragment">You can use the .on() method to create certain events!</p>
+
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("img").on("click", function() {
     //let's do something!
@@ -311,7 +322,7 @@ $("img").on("click", function() {
         <section>
             <h2>jquery events</h2>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
-$("button").click(function(){ 
+$("button").on("click", function(){ 
     $("button").css("background-color", "blue")
 });
 </pre></code>       
@@ -322,7 +333,7 @@ $("button").click(function(){
             <p>These two things are the same!</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#theme").on("click", function(){ 
-    $("*").toggleClass("theme2");
+    $("p").toggleClass("theme2");
 });
 </pre></code>  
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
@@ -330,66 +341,104 @@ document.getElementById("theme").addEventListener("click", function() {
     document.body.classList.toggle("theme2");
 })
 </pre></code>  
+        <p class="fragment">The top is jQuery and the bottom is plain JS. jQuery is so helpful! Don't worry if you don't understand the bottom line.</p>
         </section>
 
         <section>
             <h2>Exercise</h2>
             <p>Change my Color: <a href="https://jsfiddle.net/yonet3d/WrzfR">https://jsfiddle.net/yonet3d/WrzfR</a>  </p>
-            <p>Change the button background-color to be blue/red when they are clicked. The background color should be grey when the other button is clicked.</p>
+            <p>When the user clicks the "Red" Button, the text "Change My Color" should be changed to red. When the user clicks the "Blue" Button, the text "Change My Color" should be changed to blue.</p>
             <img src="images/exercise.gif" alt="Exercise Gif">
-        </section>
-
-        <section>
-            <h2>How to log the input value</h2>
-<pre class="fragment"><code class="js" data-trim contenteditable>                        
-$("input").val();
-</pre></code> 
-<pre class="fragment"><code class="js" data-trim contenteditable>                        
-$("input").change(function(){
-	var number = $("input").val();
-	console.log(number);
-});
-</pre></code> 
         </section>
 
         <section>
             <h2>Fadein Exercise</h2>
-            <p>Here is your HTML</p>
-<pre class="fragment"><code class="js" data-trim contenteditable>       <button id="clicker">Click me to show a hidden secret!</button>
-<div id="secret" style="display: none">I am a hidden secret.</div>
-Instructions:
+            <p>Start a root folder. Add your libraries and links. Here the HTML you can add to your HTML file.</p>
+<pre class="fragment"><code class="html" data-trim contenteditable>       
+&lt;button id="clicker"&gt;Click me to show a hidden secret!&lt;/button&gt;
+&lt;div id="secret" style="display: none">I am a hidden secret.&lt;/div&gt;
 </code></pre>
-            <p>Add jQuery code that fades in the text "I am a hidden secret" whenever the button is clicked.</p>
-            <p>Change your jQuery code so it slides down the text instead of fading it in.</p> 
-            <p>Change the button text to say "Click me to toggle a hidden secret!" and make the text toggle between fading in and out each time it is clicked.</p> 
-            <img src="images/exercise.gif" alt="Exercise Gif"> 
+        <p class="fragment">See next slide for details</p>
         </section>
 
+        <section>
+            <h2>Fadein Exercise</h2>
+            <p>Challenge 1: Add jQuery code that fades in the text "I am a hidden secret" whenever the button is clicked.</p>
+            <p>Challenge 2: Change your jQuery code so it slides down the text instead of fading it in.</p>
+            <p>Challenge 3: Change the button text to say "Click me to toggle a hidden secret!" and make the text toggle between fading in and out each time it is clicked.</p>
+            <img src="images/exercise.gif" alt="Exercise Gif">
+        </section>
+        
         <section>
             <h2>Method Chaining</h2>
             <p class="fragment">Instead of writing : </p>
-<pre class="fragment"><code class="js" data-trim contenteditable>                                   
+            <pre class="fragment"><code class="js" data-trim contenteditable>                                   
 $(".warning").hide();
-$(".warning").show();
-  </pre></code>
+$(".warning").fadeIn(3000);
+          </pre></code>
             <p class="fragment">You can write:</p>
-<pre class="fragment"><code class="js" data-trim contenteditable>                                   
-$(".warning").hide().show("slow");
-</pre></code>
+            <pre class="fragment"><code class="js" data-trim contenteditable>                                   
+        $(".warning").hide().fadeIn(3000);
+        </pre></code>
             <p class="fragment">As long as you are using the same selector.</p>
         </section>
-
+        
         <section>
             <h2>May the force be with you! Exercise</h2>
+            <p>Study the code first! The CSS has been written for you.</p>
             <p>Code Pen Challenge <a href="http://codepen.io/LHack/pen/zoqbxx">here</a></p>
             <img src="images/exercise.gif" alt="Exercise Gif">
         </section>
+
+        <section>
+            <h2>Working with forms</h2>
+            <p>When you create a form in HTML, you need a way to store the value that the user types in.</p>
+            <p>You can do this by selecting your HTML input tag  with jQuery and using the .val() method.</p>
+<pre class="fragment"><code class="js" data-trim contenteditable>                        
+$("input").val(); //gives you the value
+</pre></code> 
+<pre class="fragment"><code class="js" data-trim contenteditable>                        
+$("#username").val();
+</pre></code> 
+        </section>
+
+        <section>
+            <h2>Working with forms</h2>
+            <p>.on() with the argument "change" tells the browser to gather every letter that user enters into an input field. For every "change" the value is updated.</p>
+            <pre class="fragment"><code class="js" data-trim contenteditable>                        
+$("input").on("change", function(){
+    var number = $("input").val(); // this allows us to store the value that the user typed in into a variable
+    console.log(number);
+});
+        </pre></code>
+        </section>
+
+        <section>
+            <h2>Submitting a Form</h2>
+<pre class="fragment"><code class="js" data-trim contenteditable>        $("#submit-button").on("submit", function(e){
+    e.preventDefault()//This prevents the form from refreshing the page and wiping all of the user's inputs.
+    var username = $("input").val();
+    $("div.welcomeBox").append("<p>Welcome</p> "+ username)
+});
+</pre></code>
+        </section>
+
+       <section>
+           <h2>Form Exercise</h2>
+           <p>Create a form in HTML that gets the user's name, email, and phone number. Display them to the user in a paragraph in the UI.</p>
+            <img src="images/exercise.gif" alt="Exercise Gif">
+       </section>
 
         <section>
             <h2>Freecodecamp</h2>
             <p>Complete the first 5 jQuery Exercises for tomorrow.</p>
             <p><a href="http://www.freecodecamp.com/challenges/learn-how-script-tags-and-document-ready-work">http://www.freecodecamp.com/challenges/learn-how-script-tags-and-document-ready-work</a></p>
             <img src="images/exercise.gif" alt="Exercise Gif">
+        </section>
+
+        <section>
+            <h2>Watch this Video</h2>
+            <a href="https://frontendmasters.com/courses/web-development/what-is-jquery/">Frontend Masters</a>
         </section>
 
         <section>
@@ -402,23 +451,6 @@ $(".warning").hide().show("slow");
             <h2>White Board Game</h2>
             <p><span style="color: yellow">Problem: </span> You want to have an image in your HTML that pulls a picture of a panda from the internet. The image should have a class of “panda”. When the picture is clicked, you want the user to be asked if they like pandas. If the user says yes, the user should get an alert that says “Me too!” and logs a smiley face in the console. If the user says no, the image of the panda should be hidden, and a sad face should be logged in the console. </p>
             <p><span style="color: yellow">Components: </span>On the board, write the code for the HTML and jQuery.
-        </section>
-
-        <section>
-            <h2>Append Method</h2>
-            <p class="fragment">The .append(); method in jQuery allows you to add HTML into your browser. The selector expression preceding the method is the container into which the content is inserted.</p>
-<pre class="fragment"><code class="js" data-trim contenteditable>                                   
-$("p").append("<p>Greetings! How are you?</p>");
-</pre></code>
-            <p class="fragment">This will add the paragraph with the text “Greetings! How are you?” to the paragraph that was selected in your HTML.</p>
-        </section>
-
-        <section>
-            <h2>The onclick Function</h2>
-            <p class="fragment">If you want a function to run when a button is clicked, you can use the following syntax in your HTML.</p>
-<pre class="fragment"><code class="js" data-trim contenteditable>                                   
-&lt;button onclick="myFunction()"&gt;Click me&lt;/button&gt;
-</pre></code>
         </section>
 
         <section>
