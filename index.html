@@ -415,10 +415,18 @@ $("input").on("change", function(){
 
         <section>
             <h2>Submitting a Form</h2>
-<pre class="fragment"><code class="js" data-trim contenteditable>        $("#submit-button").on("submit", function(e){
+<pre class="fragment"><code class="js" data-trim contenteditable>  
+//Version 1
+$("#user-form").on("submit", function(e){
     e.preventDefault()//This prevents the form from refreshing the page and wiping all of the user's inputs.
-    var username = $("input").val();
-    $("div.welcomeBox").append("<p>Welcome</p> "+ username)
+    var userEmail = $("#user-email").val();
+    $("div.welcomeBox").append("<p>Welcome "+ username + "</p>")
+});
+//Version 2
+$("#submit-button").on("click", function(e){
+    e.preventDefault()//This prevents the form from refreshing the page and wiping all of the user's inputs.
+    var userEmail = $("#user-email").val();
+    $("div.welcomeBox").append("<p>Welcome "+ username + "</p>")
 });
 </pre></code>
         </section>
