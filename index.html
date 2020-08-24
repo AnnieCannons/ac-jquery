@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>AnnieCannons slides</title>
+    <title>AnnieCannons jQuery slides</title>
 
     <meta name="description" content="AnnieCannons class slides">
     <meta name="author" content="AnnieCannons">
@@ -15,6 +15,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
+    <link rel="icon" type="image/png" href="images/AC_Asterisk.png">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/league.css" id="theme">
 
@@ -57,61 +58,113 @@
         </section>
 
         <section>
+            <h2>What is a user-driven event?</h2>
+            <p class="fragment">Anytime a user scrolls, clicks or hovers, we want something to change on the screen.</p>
+            <p class="fragment">Sometimes, we only want to change one thing on the screen. We don't want the browser to take the time to reload the entire site, just to change one thing in the UI.</p>
+            
+        </section>
+
+        <section>
             <h2>Before we start!</h2>
             <p class="fragment">We need to talk about how the browser actually reads your code....</p>
-            <p class="fragment">HTML and JavaScript were not really written to be able to interact.</p>
+            <p class="fragment">HTML and JavaScript were not written to be able to interact with each other.</p>
             <img class="fragment" src="images/htmljs.gif" alt="Trying to hit a nail" width="200px">
         </section>
 
         <section>
             <h2>Solving the problem</h2>
             <ul>
-                <li class="fragment">Browsers contain an API (Application Programming Interface) that allows your JS and HTML to interact.</li>
-               <li class="fragment">There are a lot of APIs out there.</li>
-               <li class="fragment">The programming API for documents is called the Document Object Model (DOM). Browser's like Chrome have this built in.</li>
+                <li>Browsers contain an API (Application Programming Interface) that allows your JS and HTML to interact.</li>
+                <li class="fragment">There are a lot of <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction" target="_blank">APIs</a> that permit different kinds of interactions.</li>       
+               <li class="fragment">The programming API for documents (aka web pages) is called the Document Object Model (DOM) - more on this later.</li>
+               <li class="fragment">Browsers like Chrome have this API, the DOM, built in.</li>
+               <li class="fragment">In summary, the DOM allows our JS and HTML to interact in the browser.</li>
             </ul>
+        </section>
+
+        <section>
+            <h2>What is an API?</h2>
+            <p>Watch <a href="https://www.youtube.com/watch?v=s7wmiS2mSXY" target="_blank">here!</a></p>
         </section>
 
         <section>
             <h2>The DOM</h2>
             <ul>
-                <li class="fragment">The DOM is the bridge between your JS and your HTML</li>
-                <li class="fragment">Each HTML tag is turned into a JS object by the browser, and each of those objects is stored inside the DOM</li>
+                <li class="fragment">The Document Object Model is the bridge between your JS and your HTML.</li>
+                <li class="fragment">Think back to how data talk to each other over the internet. What data type would we need for interactions? <span class="fragment" style="color: yellow;">Objects!</span> <span class="fragment">Document <span style="color: yellow;">Object </span> Model!!!</span></li>
+                <li class="fragment">The browser's API (the DOM) turns each HTML tag into a JS object, and each of those objects is stored inside the DOM.</li>
+                <li class="fragment">Let's see this in action in our Dev Tools console by looking at <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" target="_blank">MDN documentation on the DOM</a>! Activity on next slide. &#128522;</li>
             </ul>
+        </section>
+
+        <section>
+            <h2>DOM Activity on the Document</h2>
+            <ol>
+                <li>Press command-option-J to open JavaScript console in Dev Tools.</li>
+                <li>In the console, type: <code>document;</code></li>
+                <li>Press return.</li>
+                <li>Then click the dropdown arrow in the result that shows. What do you see?</li>
+                <li>Try clicking on nested dropdown arrows. What do you see?</li>
+                <li>Does the code look familiar? <span class="fragment">Yes, what you see is what we often see in the Elements tab when we open Dev Tools Inspector!</span></li>
+            </ol>
         </section>
 
         <section>
             <h2>What is the DOM?</h2>
-            <img src="images/dom1.png" alt="The DOM">
+            <p>We have explored the D for <span style="color: yellow;">Document</span>.</p>
+            <p>We have explored the O for <span style="color: yellow;">Object</span>.</p>
+            <p>What about the M for <span style="color: yellow;">Model</span>?</p>
+            <img data-enlargable style="border: 5px solid blue; cursor: zoom-in;" width="500px;" src="images/dom1.png" alt="The DOM">
         </section>
 
         <section>
             <h2>Terminology</h2>
-            <ul>
-                <li class="fragment">The DOM, just like JavaScript objects, is a data structure called a "tree"</li>
-                <li class="fragment">Each point of data is called a "node"</li>
-                <li class="fragment">Each "node" can have a "parent", "child", and/or "sibling" nodes</li>
-                <li class="fragment">The DOM is accessed by a global variable called document</li>
-                <li class="fragment">We can also use "dot notation" to access methods and properties</li>
-            </ul>
+            <div style="display: flex; justify-content: space-between;">
+                <img data-enlargable style="border: 5px solid blue; cursor: zoom-in;" width="30%;" src="images/dom1.png" alt="The DOM">
+                <ul>
+                    <li class="fragment">The DOM, just like JavaScript objects, is a data structure called a "tree."</li>
+                    <li class="fragment">Each point of data is called a "node."</li>
+                    <li class="fragment">Each "node" can have a "parent", "child", and/or "sibling" nodes.</li>
+                    <li class="fragment">The DOM is accessed by a global variable called <code>document</code>.</li>
+                    <li class="fragment">Because the DOM stores information as JS objects, we can use "dot notation" to access methods and properties.</li>
+                </ul>
+            </div>
         </section>
 
         <section>
-            <h2>Try it!</h2>
-            <p>Try it!</p>
-            <p>Open your JS console and try these...</p>
+            <h2>DOM Activity with Dot Notation</h2>
+            <p>In a new tab, open your Chrome Developer Tools console (command-option-J).</p> <p>Then input the following JS statements, one at a time. Explore the dropdown arrows. What do you see?</p>
 <pre class="fragment"><code class="html" data-trim contenteditable>
-document.body
-document.body.children
-document.querySelectorAll('section')
-</pre></code>        
+document.body;
+document.body.children;
+document.querySelectorAll('section');
+</pre></code>
+            <p class="fragment">Notice that we can use dot notation to find the <code style="color: aqua;">body</code>.</p>        
+            <p class="fragment">Notice that <code style="color: aqua;">.children</code> selects a parent node's children.</p>
+            <p class="fragment">Notice the query selector method to select all html <code style="color: aqua;">section</code> tags.</p>
+        </section>
+
+        <section>
+            <h2>DOM query selectors</h2>
+            <p>Instead of having the <i>whole</i> document load <i>every time</i> a user clicks on only <i>one</i> HTML element on the page, how can we only select that element or that kind of element without using lengthy code such as this every time:</p>
+<pre><code class="html" data-trim contenteditable>
+document.querySelector('div.gb-Dc');
+document.querySelectorAll('section');
+</pre></code>
+            <p class="fragment">Enter jQuery, a JavaScript library that makes the query selection easier.</p>
         </section>
 
         <section>
             <h2>What is jQuery?</h2>
-            <p>jQuery is a collection of JavaScript code. This is called a library. A library is a collection of reusable methods for a particular purpose. (Like Bootstrap for CSS)</p>
+            <p>jQuery is a collection of JavaScript code. This is called a <span style="color: yellow;">library</span>. A library is a collection of reusable methods for a particular purpose. (Like Bootstrap for CSS)</p>
             <p>JQuery is JavaScript.</p>
-            <img src="images/jquery.png" alt="Benefits to using jQuery">
+            <img data-enlargable style="border: 5px solid blue; cursor: zoom-in;" width="500px;" src="images/jquery.png" alt="Benefits to using jQuery">
+
+        </section>
+
+        <section>
+            <h2>Traversing the DOM with jQuery</h2>
+            <p>Watch <a href="https://www.youtube.com/watch?v=Gq3Aez8sVpM" target="_blank">here!</a> </p>
         </section>
 
         <section>
@@ -123,52 +176,75 @@ document.querySelectorAll('section')
 
         <section>
             <h2>How to write jquery</h2>
-            <img src="images/addingscript.png" alt="HTML example">
+            <img data-enlargable style="border: 5px solid blue; cursor: zoom-in;" src="images/addingscript.png" alt="HTML example">
         </section>
 
         <section>
             <h2>Hosted Libraries</h2>
-            <p>Google has a website for all of the links you need for JavaScript Libraries</p>
-            <p>Go to <a href="https://developers.google.com/speed/libraries/">Hosted Libraries</a></p>
-            <p>Find the jQuery section and copy the most recent snippet.</p>
+            <p>Google has a website for all of the links you need for JavaScript Libraries.</p>
+            <p>Go to <a href="https://developers.google.com/speed/libraries/" target="_blank">Hosted Libraries</a>.</p>
+            <ol>
+                <li>Once there, in the contents sidebar on the right click on "jQuery" to get to that section of the library.</li>
+                <li>Then copy the most recent snippet by triple clicking on that line of code to paste into your project. (next slide)</li>
+                <li>Before you leave, you can add this hosted libraries link to your Bookmarks Bar.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Root Folder Activity</h2>
+            <p>Let's create a project that employs our jQuery CDN.</p>
+            <ul>
+                <li>Create a project titled "jQuery Intro" in Visual Studio Code that has HTML, CSS, JS files and/or folders.</li>
+                <li>In your HTML file, paste the jQuery CDN.</li>
+                <li>Then create at least 3 elements in the body tag (e.g., breakfast options, grocery list, greeting).</li>
+                <li class="fragment">Congratulations! You've just created a project with elements that can be selected using jQuery! Save this project. We will add more to it later.</li>
+            </ul>
         </section>
 
         <section> 
             <h2>How to write jQuery</h2>
             <ul>
-                <li class="fragment">Step One: Let the JavaScript engine know that you are using the jQuery library by writing the $ sign</li>
-                <li class="fragment">Step Two: Identify which HTML element you want to modify or attach an event to.</li>
-                <li class="fragment">Step Three: Select that element using the selector method from CSS.</li>
+                <li class="fragment">Step 1: Let the JavaScript engine know that you are using the jQuery library by writing the $ sign.</li>
+                <li class="fragment">Step 2: Identify which HTML element you want to modify or attach an event to.</li>
+                <li class="fragment">Step 3: Select that element using the selector method from CSS.</li>
+                <li class="fragment">Step 4: Apply a jQuery method.</li>
             </ul>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("HTML-selector").method();
 </pre></code>
+            <p class="fragment">Notice the parentheses that accept a string as a parameter.
+            <br>
+            <span class="fragment">
+            Notice the dot notation for methods to call.</span><br>
+            <span class="fragment">
+            Notice that parentheses are used to call the method. Some methods (not shown above) accept parameters.</span>
         </section>
 
          <section>
-             <p>HTML</p>
-<pre class="fragment"><code class="html" data-trim contenteditable>
+             <h2>HTML & jQuery</h2>
+             <p>Here is an HTML element:</p>
+<pre><code class="html" data-trim contenteditable>
 &lt;div id="greeting"&gt;Hello!&lt;/div&gt;
 </pre></code>        
-             
-            <p>jQuery selecting that HTML element</p>
+            <p class="fragment">jQuery selecting that HTML element:</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#greeting")
 </pre></code>
-        <p class="fragment">You can use a selector just like the id selector in CSS</p>
+        <p class="fragment">You can use a selector just like the id selector in CSS.</p>
          </section>
 
         <section>
-             <p>HTML</p>
-<pre class="fragment"><code class="html" data-trim contenteditable>
+            <h2>HTML & jQuery</h2>
+            <p>Here is an HTML element:</p>
+<pre><code class="html" data-trim contenteditable>
 &lt;div class="greeting"&gt;Hello!&lt;/div&gt;
 </pre></code>        
              
-            <p>jQuery selecting that HTML element</p>
+            <p class="fragment">jQuery selecting that HTML element:</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $(".greeting")
 </pre></code>
-    <p class="fragment">You can use a selector just like the class selector in CSS</p>
+    <p class="fragment">You can use a selector just like the class selector in CSS.</p>
          </section>
 
          <section>
@@ -182,7 +258,21 @@ $("#id") //how to select an element with a certain id
 
         <section>
             <h2>jQuery: selecting elements</h2>
-            <img src="images/htmljquery.png" alt="How to Select HTML Elements">
+            <p>Write out the jQuery selector for each of the following HTML elements. Click forward to see the answer!</p>
+            <div style="display:flex; justify-content: space-between;">
+<pre><code class="html js" data-trim contenteditable>                      
+<p>Welcome!</p>
+
+<div id="main">Welcome!</div>
+
+<p class="intro">Welcome!</p>
+
+<div id="main">
+    <p class="intro">Welcome!</p>
+</div>
+</pre></code>
+            <img src="images/htmljquery.png" alt="How to Select HTML Elements" class="fragment">
+            </div>
         </section>
 
         <section>
@@ -194,28 +284,61 @@ $(document).ready(function() {
 });
 </pre></code>
              <p class="fragment">This makes the JavaScript ready to run on the page. You will add it to the beginning of your JS file.</p>
+             <p class="fragment">Let's take a moment to add this code to the jQuery Intro project we started.</p>
         </section>
 
         <section>
-            <h2>jquery methods</h2>
+            <h2>jQuery Methods Activity</h2>
+            <p>Check <a href="https://api.jquery.com/" target="_blank">this</a> out!</p>
+            <p>Then do this <a href="https://docs.google.com/document/d/1MIL9q47sPLs1qBXbjf_oBowh3iLnb63JmpQA3WyC29Y/edit?usp=sharing" target="_blank">mix and match</a>!</p>
+            <div>
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 200px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div>  
         </section>
 
         <section>
             <h2>Manipulating the UI</h2>
-            <p>Once you have selected an HTML element with your jQuery selector, you want to be able to change it.</p>
-            <p>For example, when you click on a button, you want it to do something. Or when you submit a form, you want the form to clear its contents.</p>
+            <p>Once an HTML element is selected as a jQuery selector, we can then use jQuery methods to change it.</p>
+            <p>For example, when you click on a button, you want the button to do something (e.g., hide/show, alert, tooltip).</p>
+            <p>Another example: when you submit a form, you want the form to clear its contents.</p>
         </section>
 
         <section>
-            <h2>jQuery: the recipe</h2>
-            <img src="images/recipe.png" alt="jQuery Recipe">
+            <h2>jQuery in JS Bin</h2>
+            <p>When using jQuery in <a href="https://jsbin.com/?html,css,js,output" target="blank">JS Bin</a>, click the dropdown arrow next to "Add Library" to add the jQuery CDN. Let's do this, then:</p>
+            <ol class="fragment">
+                <li>Create at least 3 elements in the body tag (e.g., color list, dialogue, weather forecast).</li>
+                <li>Give at least 1 element CSS styling.</li>
+                <li>In the JS panel, remember to select the document and apply the .ready() method to prepare to insert jQuery selectors and methods.</li>
+                <li>Finally, in the JS panel, use jQuery to select an element and then apply this method: <a href="https://api.jquery.com/hide/#hide" target="_blank">.hide()</a><span class="fragment">. What do you notice?</span></li>
+            </ol>
+            <p class="fragment">For extra practice after lecture, feel free to explore:<br><a href="https://api.jquery.com/text/#text" target="_blank">.text()</a>,  <a href="https://api.jquery.com/css/#css-propertyName-value" target="_blank">.css()</a>, and <a href="https://api.jquery.com/empty/" target="_blank">.empty()</a>.</p>
+
         </section>
 
         <section>
-            <h2>Where to go?</h2>
-            <p>This website will give you a list of many of the different methods you can use in jQuery, and it has a search function! This documentation is a great way to learn more about what you can do with jQuery.</p>
-            <p>*Pro tip: Go to the code examples at the bottom of the page.</p>
-            <p><a href="https://api.jquery.com" target="_blank">www.api.jquery.com</a></p>
+            <h2>jQuery Practice</h2>
+            <p>Let's select elements to change their color!</p>
+            <ul>
+                <li>In HTML file, create three paragraphs with no classes.</li>
+                <li>In CSS file, create a class of "special" to give its color property a value.</li>
+                <li>In JS file, use jQuery to select the paragraphs and then use the proper method to add a class of <code style="color: turquoise;">special</code> to the tags.</li>
+            </ul>
+            <p>Hint: use <a href="https://api.jquery.com/" target="_blank">jQuery documentation</a> to help you find the method.</p>
+            <!-- <img src="images/recipe.png" alt="jQuery Recipe"> -->
+            <p class="fragment">Let's try it in <a href="https://jsbin.com/quvedog/edit?html,css,js,output" target="_blank">JS Bin</a>!</p>
+            <div>
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 200px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div>  
+        </section>
+
+        <section>
+            <h2>jQuery Documentation</h2>
+            <p><a href="https://api.jquery.com" target="_blank">api.jquery.com</a></p>
+            <p>This website will give you a complete list of jQuery methods. You  can use the search function to find methods! Reference this documentation to learn more about what jQuery can do.</p>
+            <p>*Pro tip: Each page on a jQuery method has code examples near the bottom of the page. Check it out!</p>
         </section>
 
         <section>
@@ -234,65 +357,73 @@ $(document).ready(function() {
 
         <section>
             <h2>Making things appear or hide</h2>
-            <p>.hide() and .show()</p>
+            <p><code style="color: aqua;">.hide()</code> and <code style="color: aqua;">.show()</code></p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#navbar").hide();
 $(".maintext").show();
 $("img").hide();
 </pre></code> 
-            <p class="fragment">.fadeIn() and .fadeOut()</p>
+            <p class="fragment"><code style="color: aqua;">.fadeIn()</code> and <code style="color: aqua;">.fadeOut()</code></p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#navbar").fadeIn();
 $("img").fadeIn(3000);
 $(".mainImg").fadeOut(6000);
 </pre></code> 
 <p class="fragment">The number 3000 means, take 3000 milliseconds (aka 3 seconds) to fade this element out. If you make the number larger, it will fade out more slowly.</p>
-<p class="fragment">Try yourself!</p>
+<p class="fragment">Try yourself in <a href="https://jsbin.com/maquhux/edit?html,js,output" target="_blank">JS Bin</a>!</p>
         </section>
 
         <section>
                 <h2>Adding things to the DOM</h2>
-                <p>.append() adds to the end</p>
+                <p><code style="color: aqua;">.append()</code> adds to the end</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $(".formdiv").append("<div>Thank you for submitting your form!</div>")
 </pre></code> 
-                <p class="fragment">.prepend() adds to the end</p>
+                <p class="fragment"><code style="color: aqua;">.prepend()</code> adds to the beginning</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>  
 var name = "Doctor Who"                      
-$(".welcome").append("<div>Welcome " + name + "</div>")
-
+$(".welcome").append("<div>Hello " + name + "</div>")
 </pre></code> 
+                <p class="fragment">Try yourself in <a href="https://jsbin.com/tigakav/2/edit?html,js,output" target="_blank">JS Bin</a>!</p>
             </section>
 
             <section>
                 <h2>Adding things to the DOM</h2>
-                <p>Remember! When you add something in the parenthesis of .append() or .prepend(), you have to put the html elements in quotation marks.</p>
+                <p>Remember! When you add something in the parentheses of <code style="color: aqua;">.append()</code> or <code style="color: aqua;">.prepend()</code>, you have to put the HTML elements in quotation marks.</p>
+                <p class="fragment">Try it again! In the same JS Bin used on the previous slide, use jQuery to add another label and input for password.</p>
             </section>
 
         <section>
             <h2>Changing what is in the DOM</h2>
-            <p>These elements find something that already exists on your page and overwrites it.</p>
-            <p>.text() replaces the text in an element with something else</p>
+            <p>These methods overwrite existing content on the page.</p>
+            <p><code style="color: aqua;">.text()</code> replaces the text in an element with something else</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#error").text("You can't use that password.")
 </pre></code> 
-            <p class="fragment">.html() replaces the html inside an element with something else.</p>
+            <p class="fragment"><code style="color: aqua;">.html()</code> replaces the html inside an element with something else.</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("div").html("<p>Party time!</p>")
 </pre></code> 
+            <p class="fragment">Practice <a href="https://codepen.io/cmh123/pen/gOrwoeN" target="_blank">here!</a></p>
         </section>
 
         <section>
             <h2>Changing what elements look like</h2>
-            <p>.css() changes the CSS of an element you have selected</p>
+            <p><code style="color: aqua;">.css()</code> changes the CSS of an element you have selected.</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#navbar").css("background-color", "red");
 </pre></code> 
-<p class="fragment"> You have to change the syntax for updating the property-value pair of the elements CSS. It is JS syntax, not CSS syntax.</p>
+<p class="fragment">Notice that updating the property-value pair of the element's CSS is in JS syntax, not CSS syntax:</p>
+<ul>
+    <li class="fragment">the dot notation for the method's name: <code style="color: aqua;">.css</code></li>
+    <li class="fragment">followed by parentheses that accepts parameters: <code style="color: aqua;">()</code></li>
+    <li class="fragment">within the parentheses the two strings that are accepted as parameters: <code style="color: aqua;">"background-color"</code> and <code style="color: aqua;">"red"</code></li>
+</ul>   </p>
             </section>
 
         <section>
-            <h2>Run these in Jsbin</h2>
+            <h2>JS Bin Exercise</h2>
+            <p>Go to <a href="https://jsbin.com/?html,js,output" target="blank">JS Bin</a> to create a paragraph in the html panel. Then run the following in JS Bin:</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("p").text("Hello World!");
 $("p").css("color", "red");
@@ -302,14 +433,14 @@ $("p").fadeOut(3000);
 
         <section>
             <h2>jquery events</h2>
-            <p>In addition to changing elements when the document loads or depending on certain media queries, we also need to change the UI based on events.</p>
-            <p class="fragment">Events are when the user takes an action on your site. Examples: clicks a button, types in a form, etc</p>
-            <img class="fragment" src="images/action.gif" alt="Action!">
+            <p>In addition to changing elements when the document loads or depending on certain media queries, we also need to change the UI based on <span style="color: yellow;">events</span>.</p>
+            <p class="fragment">Events are when the user takes an action on your site. Examples: clicks a button, types in a form, hovers over a link, scrolls down the page, etc.</p>
+            <img class="fragment" style="width: 300px;" src="images/action.gif" alt="Action!">
         </section>
 
         <section>
             <h2>jquery Events</h2>
-            <p class="fragment">You can use the .on() method to create certain events!</p>
+            <p class="fragment">You can use the <code style="color: aqua;">.on()</code>  method to create certain events!</p>
 
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("img").on("click", function() {
@@ -317,20 +448,25 @@ $("img").on("click", function() {
 });
 </pre></code>        
         <p class="fragment">Are there different events that you can use instead of just "click"?</p>
+        <p class="fragment">Check <a href="https://api.jquery.com/category/events/" target="_blank">this</a> out!</p>
+        <p class="fragment">In this <a href="https://codepen.io/cmh123/pen/OJNRzaP?editors=1010" target="_blank">Codepen</a>, use the <code style="color: turquoise;">.show()</code> and the <code style="color: turquoise;">.hide()</code> methods to change the paragraphs!</p>
         </section>
 
         <section>
             <h2>jquery events</h2>
-<pre class="fragment"><code class="js" data-trim contenteditable>                        
+<pre><code class="js" data-trim contenteditable>                        
 $("button").on("click", function(){ 
     $("button").css("background-color", "blue")
 });
-</pre></code>       
+</pre></code>    
+        <p>Explain <a href="https://jsfiddle.net/boilerplate/jquery" target="_blank">this</a> code!</p>
+        
         </section>
 
         <section>
-            <h2>Remember!</h2>
+            <h2>Remember... </h2>
             <p>These two things are the same!</p>
+            <p>Explain the following two code blocks</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#theme").on("click", function(){ 
     $("p").toggleClass("theme2");
@@ -341,32 +477,50 @@ document.getElementById("theme").addEventListener("click", function() {
     document.body.classList.toggle("theme2");
 })
 </pre></code>  
-        <p class="fragment">The top is jQuery and the bottom is plain JS. jQuery is so helpful! Don't worry if you don't understand the bottom line.</p>
+        <p class="fragment">The top is jQuery and the bottom is plain JS. jQuery is so helpful!</p>
+        </section>
+
+        <section>
+            <h2>jQuery Events Documentation</h2>
+            <p>Explore more of what <a href="https://api.jquery.com/category/events/" target="_blank">jQuery events</a> have to offer.</p>
+            <p>Then click <a href="https://docs.google.com/document/d/1wvO0U6nG5xTIl-gJNM3kau3uDCdGXJ6FFOa8GpS5cdc/edit?usp=sharing" target="blank">here</a> to fill out the blanks.</p>
         </section>
 
         <section>
             <h2>Exercise</h2>
-            <p>Change my Color: <a href="https://jsfiddle.net/yonet3d/WrzfR">https://jsfiddle.net/yonet3d/WrzfR</a>  </p>
+            <p>Change my Color -- use this <a href="https://jsfiddle.net/yonet3d/WrzfR" target="_blank">jsfiddle</a> link.</p>
             <p>When the user clicks the "Red" Button, the text "Change My Color" should be changed to red. When the user clicks the "Blue" Button, the text "Change My Color" should be changed to blue.</p>
-            <img src="images/exercise.gif" alt="Exercise Gif">
+            <div class="fragment">
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 150px; height: 150px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div>  
+        </section>
+        <section>
+            <h2>Looking at code</h2>
+            <p>Go line by line, and take turns explaing what <a href="https://www.tutorialrepublic.com/codelab.php?topic=jquery&file=fade-in-and-out-effects">this code</a> is doing.</p>
         </section>
 
         <section>
             <h2>Fadein Exercise</h2>
-            <p>Start a root folder. Add your libraries and links. Here the HTML you can add to your HTML file.</p>
+            <p>Start a root folder. Add your libraries and links. Here is the HTML you can add to your HTML file:</p>
 <pre class="fragment"><code class="html" data-trim contenteditable>       
 &lt;button id="clicker"&gt;Click me to show a hidden secret!&lt;/button&gt;
 &lt;div id="secret" style="display: none">I am a hidden secret.&lt;/div&gt;
 </code></pre>
-        <p class="fragment">See next slide for details</p>
+        <p class="fragment">See next slide for details.</p>
         </section>
 
         <section>
             <h2>Fadein Exercise</h2>
-            <p>Challenge 1: Add jQuery code that fades in the text "I am a hidden secret" whenever the button is clicked.</p>
-            <p>Challenge 2: Change your jQuery code so it slides down the text instead of fading it in.</p>
-            <p>Challenge 3: Change the button text to say "Click me to toggle a hidden secret!" and make the text toggle between fading in and out each time it is clicked.</p>
-            <img src="images/exercise.gif" alt="Exercise Gif">
+            <ul>
+                <li><span style="color:turquoise">Challenge 1:</span> Add jQuery code that fades in the text "I am a hidden secret" whenever the button is clicked.</li>
+                <li><span style="color:turquoise">Challenge 2:</span> Change your jQuery code so it slides down the text instead of fading it in.</li>
+                <li><span style="color:turquoise">Challenge 3:</span> Change the button text to say "Click me to toggle a hidden secret!" and make the text toggle between fading in and out each time it is clicked.</li>
+            </ul>
+            <div class="fragment">
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 150px; height: 150px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div>  
         </section>
         
         <section>
@@ -380,41 +534,73 @@ $(".warning").fadeIn(3000);
             <pre class="fragment"><code class="js" data-trim contenteditable>                                   
         $(".warning").hide().fadeIn(3000);
         </pre></code>
-            <p class="fragment">As long as you are using the same selector.</p>
+            <p class="fragment">As long as you are using the same selector, you can chain multiple methods.</p>
+            <p class="fragment">Notice the semi-colon is after the last method in the chain.</p>
+            <p class="fragment">Explain <a href="https://codepen.io/cmh123/pen/abNmEgj" target="_blank">this </a>code.</p>
+        </section>
+
+        <section>
+            <h2>Method Chaining Practice</h2>
+            <ul>
+                <li class="fragment">In <a href="https://jsbin.com/?html,js,output" target="_blank">JS Bin</a>, select an element.</li>
+                <li class="fragment">Attach an event listener.</li>
+                <li class="fragment">Inside the function's code block, chain at least 3 methods to your selector.</li>
+                <li class="fragment">Show your group your work!</li>
+            </ul>
         </section>
         
         <section>
             <h2>May the force be with you! Exercise</h2>
             <p>Study the code first! The CSS has been written for you.</p>
-            <p>Code Pen Challenge <a href="http://codepen.io/LHack/pen/zoqbxx">here</a></p>
-            <img src="images/exercise.gif" alt="Exercise Gif">
+            <p>Code Pen Challenge <a href="http://codepen.io/LHack/pen/zoqbxx" target="_blank">here</a>.</p>
+            <div class="fragment">
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 150px; height: 150px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div>  
         </section>
 
         <section>
             <h2>Working with forms</h2>
             <p>When you create a form in HTML, you need a way to store the value that the user types in.</p>
-            <p>You can do this by selecting your HTML input tag  with jQuery and using the .val() method.</p>
+            <p>You can do this by selecting your HTML input tag  with jQuery and using the <code style="color: aqua;">.val()</code> method.</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("input").val(); //gives you the value
 </pre></code> 
 <pre class="fragment"><code class="js" data-trim contenteditable>                        
 $("#username").val();
 </pre></code> 
+            
+        </section>
+
+        <section>
+            <h2>In-class practice</h2>
+            <ul>
+                <li class="fragment">Create a button in HTML that says “Click me!” and has an ID of “movie”</li>
+                <li class="fragment">When the button is clicked, you want to ask the user what their favorite movie is.</li>
+                <li class="fragment">Store the user’s answer in a variable called favFilm.</li>
+                <li class="fragment">Log the variable favFilm to the console.</li>
+            </ul>
         </section>
 
         <section>
             <h2>Working with forms</h2>
-            <p>.on() with the argument "change" tells the browser to gather every letter that user enters into an input field. For every "change" the value is updated.</p>
-            <pre class="fragment"><code class="js" data-trim contenteditable>                        
+            <p><code style="color: aqua;">.on()</code> with the argument "change" tells the browser to gather every letter that user enters into an input field. For every "change" the value is updated.</p>
+            <div class="fragment">
+            <pre ><code class="js" data-trim contenteditable>                        
 $("input").on("change", function(){
     var number = $("input").val(); // this allows us to store the value that the user typed in into a variable
     console.log(number);
 });
         </pre></code>
+        <p>Notice <code style="color: aqua;">.on()</code> accepts two arguments here, a string and a function.</p>
+            <p>Explain <a href="https://codepen.io/cmh123/pen/XWdjZdB?editors=1010" target="_blank">this code</a>.</p>
+            <p>Practice <a href="https://codepen.io/cmh123/pen/XWdjZdB" target="_blank">here</a>!</p>
+            </div>
         </section>
 
         <section>
             <h2>Submitting a Form</h2>
+            <p>Explain the following code, line by line.</p>
 <pre class="fragment"><code class="js" data-trim contenteditable>  
 //Version 1
 $("#user-form").on("submit", function(e){
@@ -433,48 +619,62 @@ $("#submit-button").on("click", function(e){
 
        <section>
            <h2>Form Exercise</h2>
-           <p>Create a form in HTML that gets the user's name, email, and phone number. Display them to the user in a paragraph in the UI.</p>
-            <img src="images/exercise.gif" alt="Exercise Gif">
+           <p>Create a form in HTML that gets the user's name, email, and phone number.</p>
+           <p>Display these values to the user in a paragraph in the UI.</p>
+           <div class="fragment">
+            <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 150px; height: 150px;">
+            <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>        
+          </div>  
        </section>
 
         <section>
             <h2>Freecodecamp</h2>
-            <p>Complete the first 5 jQuery Exercises for tomorrow.</p>
-            <p><a href="http://www.freecodecamp.com/challenges/learn-how-script-tags-and-document-ready-work">http://www.freecodecamp.com/challenges/learn-how-script-tags-and-document-ready-work</a></p>
-            <img src="images/exercise.gif" alt="Exercise Gif">
+            <p>Complete the first 5 jQuery Exercises</p>
+            <p>Click <a href="https://www.freecodecamp.org/learn/front-end-libraries/jquery/learn-how-script-tags-and-document-ready-work" target="_blank">here</a></p>
+            <div class="fragment">
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 150px; height: 150px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div>  
         </section>
 
         <section>
             <h2>Watch this Video</h2>
-            <a href="https://frontendmasters.com/courses/web-development/what-is-jquery/">Frontend Masters</a>
+            <a href="https://frontendmasters.com/courses/web-development/what-is-jquery/" target="_blank">Frontend Masters</a>
         </section>
 
         <section>
-            <h2>White Board Game</h2>
-            <p><span style="color: yellow">Problem:</span> You want to create a button in HTML that says “Click me!” and has an ID of “movie”. When the button is clicked, you want the user to be asked for their favorite movie. The user’s answer should be stored in a variable called favFilm. Log the variable favFilm to the console.</p>
-            <p> <span style="color: yellow">Components:</span> On the board, write the code for the HTML and jQuery. Show what should be in the console. Write what the browser should look like.</p>
+            <h2>In-class practice</h2>
+            <ul>
+                <li class="fragment">Put an image of a panda in your html, with a class of "panda".</li>
+                <li class="fragment">Make the image a button.</li>
+                <li class="fragment">When the picture is clicked, you want the user to be asked if they like pandas.</li>
+                <li class="fragment">If the user says yes, the user should get an alert that says “Me too!”, AND logs a smiley face in the console.</li>
+                <li class="fragment">If the user says no, the image of the panda should be hidden, AND a sad face should be logged in the console.</li>
+            </ul>  
         </section>
 
-        <section>
-            <h2>White Board Game</h2>
-            <p><span style="color: yellow">Problem: </span> You want to have an image in your HTML that pulls a picture of a panda from the internet. The image should have a class of “panda”. When the picture is clicked, you want the user to be asked if they like pandas. If the user says yes, the user should get an alert that says “Me too!” and logs a smiley face in the console. If the user says no, the image of the panda should be hidden, and a sad face should be logged in the console. </p>
-            <p><span style="color: yellow">Components: </span>On the board, write the code for the HTML and jQuery.
-        </section>
 
         <section>
             <h2>Review Video</h2>
-            <p>Watch <a href="https://www.youtube.com/watch?v=v-RC3kJCL4c">here</a></p>
+            <p>Watch <a href="https://www.youtube.com/watch?v=v-RC3kJCL4c" target="_blank">here</a></p>
         </section>
 
         <section>
             <h2>Budget Assignment</h2>
-            <p><a href="https://docs.google.com/a/anniecannons.com/document/d/1vPZczt1x4uNgEkoPipNqenkTM5vs9fW0g2aOLYHxqjs/edit?usp=sharing">Click here for budget/function exercise</a></p>
-            <img src="images/exercise.gif" alt="Exercise Gif">
+            <p><a href="https://docs.google.com/a/anniecannons.com/document/d/1vPZczt1x4uNgEkoPipNqenkTM5vs9fW0g2aOLYHxqjs/edit?usp=sharing" target="_blank">Click here for budget/function exercise</a></p>
+            <div class="fragment">
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 150px; height: 150px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div>  
         </section>
 
         <section>
-            <h2>Helpful Resources</h2>
-            <p><a href="https://www.khanacademy.org/computing/computer-programming/html-js-jquery">Khan Academy</a></p>
+            <h2>More jQuery</h2>
+            <p><a href="https://www.khanacademy.org/computing/computer-programming/html-js-jquery" target="_blank">Khan Academy</a></p>
+            <div class="fragment">
+                <img  src="images/exercise.gif" alt="Exercise Gif" style="width: 150px; height: 150px;">
+                <a href="https://trello.com/b/RQrD5Ye2/template-student-journey-phase-24-javascript" target="_blank"><img  src="images/trello-logo-blue.png" alt="Trello Logo" width="200px"></a>
+            </div> 
         </section>
 
         <section style="text-align: left;">
@@ -486,6 +686,8 @@ $("#submit-button").on("click", function(e){
 
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/zoomin.js"></script>
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 
